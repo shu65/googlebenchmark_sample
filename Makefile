@@ -26,4 +26,4 @@ sample1: $(SAMPLE1_OBJS)
 .PHONY: clean
 clean:
 	rm -f $(OBJES)
-	rm -f samlep1
+	rm -f ./sample1
