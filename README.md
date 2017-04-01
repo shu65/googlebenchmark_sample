@@ -1,2 +1,2 @@
 # googlebenchmark_sample
-This is samples of google benchmark.
+This repository is samples of google benchmark.
