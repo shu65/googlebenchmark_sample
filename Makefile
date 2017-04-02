@@ -3,17 +3,25 @@ CXX ?= g++
 CC_FLAGS= -std=c++0x -O3
 LDLIBS	= -lbenchmark -lpthread
 
-SAMPLE1_CPP_SRC=./src/sample1.cpp 
-SAMPLE1_OBJS = $(SAMPLE1_CPP_SRC:%.cpp=%.o)
-OBJES = $(SAMPLE1_OBJS)
+BASIC_CPP_SRC=./src/basic/main.cpp 
+BASIC_OBJS = $(BASIC_CPP_SRC:%.cpp=%.o)
+
+FIXTURES_CPP_SRC=./src/fixtures/main.cpp  
+FIXTURES_OBJS = $(FIXTURES_CPP_SRC:%.cpp=%.o)
+
+OBJES = $(BASIC_OBJS) \
+	$(FIXTURES_OBJS)
 
 .SUFFIXES:	.o
 
 .PHONY: all
-all:sample1
+all:basic fixtures
 
-sample1: $(SAMPLE1_OBJS)
-	$(CXX) -o $@ $(SAMPLE1_OBJS) $(LDFLAGS) $(LDLIBS)
+basic: $(BASIC_OBJS)
+	$(CXX) -o $@ $(BASIC_OBJS) $(LDFLAGS) $(LDLIBS)
+
+fixtures: $(FIXTURES_OBJS)
+	$(CXX) -o $@ $(FIXTURES_OBJS) $(LDFLAGS) $(LDLIBS)
 
 .c.o:
 	$(CC) -c $(CC_FLAGS) $< -o $@  $(INCLUDES)
@@ -26,4 +34,4 @@ sample1: $(SAMPLE1_OBJS)
 .PHONY: clean
 clean:
 	rm -f $(OBJES)
-	rm -f ./sample1
+	rm -f ./basic ./fixtures
