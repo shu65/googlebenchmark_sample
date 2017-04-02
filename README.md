@@ -1,10 +1,10 @@
 # googlebenchmark_sample
 This repository is samples of google benchmark.
 
-# Build and run a sample
+# Build and run a basic sample of google benchmark
 ```bash
 make
-./sample1
+./src/basic/basic
 ```
 
 This output is following. 
