@@ -3,7 +3,7 @@ CXX ?= g++
 CC_FLAGS= -std=c++0x -O3
 LDLIBS	= -lbenchmark -lpthread
 
-PROGRAM=basic
+PROGRAM=fixtures
 CPP_SRC=./main.cpp 
 OBJS = $(CPP_SRC:%.cpp=%.o)
 
